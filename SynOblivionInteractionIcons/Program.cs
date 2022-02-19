@@ -13,14 +13,14 @@ namespace SynOblivionInteractionIcons
 {
     public class Program
     {
-        private static readonly ModKey KeyOblivIcon = ModKey.FromNameAndExtension("skymojibase.esl");
+        private static readonly ModKey KeyOblivIcon = ModKey.FromNameAndExtension("skymoji - merged.esp");
         public static async Task<int> Main(string[] args)
         {
             return await SynthesisPipeline.Instance
                 .AddPatch<ISkyrimMod, ISkyrimModGetter>(RunPatch)
                 .SetTypicalOpen(GameRelease.SkyrimSE, "OblivionInteractionIcons.esp").AddRunnabilityCheck(state =>
                 {
-                    state.LoadOrder.AssertHasMod(KeyOblivIcon, true, "\n\nskymojibase.esl missing!\n\n");
+                    state.LoadOrder.AssertHasMod(KeyOblivIcon, true, "\n\nskymoji - merged.esp missing!\n\n");
                 })
                 .Run(args);
         }
